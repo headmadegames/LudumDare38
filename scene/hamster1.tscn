@@ -1,0 +1,941 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://script/hamster.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 49.4259
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 45.1162, 10 )
+
+[node name="hamster" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="center" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 0
+collision/mask = 0
+mode = 0
+mass = 0.772038
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.5
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bottom 3" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 37.4607, 92.7184 )
+transform/rot = -158.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint" type="PinJoint2D" parent="bottom 3"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom 3"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="bottom 3/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="top 3" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -37.4607, -92.7184 )
+transform/rot = 22.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="top 3"]
+
+transform/rot = -180.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top 3"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="top 3/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="left 3" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -92.7184, 37.4607 )
+transform/rot = 112.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="left 3"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left 3"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="left 3/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="right 3" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 92.7184, -37.4607 )
+transform/rot = -68.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="right 3"]
+
+transform/rot = -90.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right 3"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="right 3/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="bottom 2 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 92.0505, 39.0731 )
+transform/rot = -113.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint" type="PinJoint2D" parent="bottom 2 2"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom 2 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="bottom 2 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="top 2 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -92.0505, -39.0731 )
+transform/rot = 67.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="top 2 2"]
+
+transform/rot = -180.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top 2 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="top 2 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="left 2 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -39.0731, 92.0505 )
+transform/rot = 157.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="left 2 2"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left 2 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="left 2 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="right 2 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 39.0731, -92.0505 )
+transform/rot = -23.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="right 2 2"]
+
+transform/rot = -90.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right 2 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="right 2 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="bottom" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, 100 )
+transform/rot = 180.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint" type="PinJoint2D" parent="bottom"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="bottom/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="top" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -100 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="top"]
+
+transform/rot = -180.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="top/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="left" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -100, 0 )
+transform/rot = 90.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="left"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="left/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="right" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 100, 0 )
+transform/rot = -90.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="right"]
+
+transform/rot = -90.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="right/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="bottom 2" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 70.7107, 70.7107 )
+transform/rot = -135.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint" type="PinJoint2D" parent="bottom 2"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="bottom 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="top 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -70.7107, -70.7107 )
+transform/rot = 45.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="top 2"]
+
+transform/rot = -180.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="top 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="left 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -70.7107, 70.7107 )
+transform/rot = 135.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="left 2"]
+
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="left 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="right 2" type="RigidBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 70.7107, -70.7107 )
+transform/rot = -45.0
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.728492, 0, 0, 0.728492, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 0.5
+friction = 1.0
+bounce = 0.5
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = 128.0
+
+[node name="joint1" type="PinJoint2D" parent="right 2"]
+
+transform/rot = -90.0
+node_a = NodePath("../../center")
+node_b = NodePath("..")
+bias/bias = 0.1
+collision/exclude_nodes = true
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right 2"]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.728492, 0.728492 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="right 2/CollisionShape2D"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 0.33452, 0.33452 )
+texture = ExtResource( 2 )
+
+[node name="hamster" type="RigidBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hamster"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="hamster"]
+
+visibility/opacity = 0.22
+transform/scale = Vector2( 1.54316, 1.54316 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="hamster"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="jumpDetector" type="Area2D" parent="hamster"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 60 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 128
+collision/mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hamster/jumpDetector"]
+
+transform/pos = Vector2( 0, 60 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="hamster/jumpDetector/CollisionShape2D"]
+
+visibility/opacity = 0.57
+transform/scale = Vector2( 1.40811, 0.316355 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="hamster/jumpDetector"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
