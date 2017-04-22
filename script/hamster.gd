@@ -28,6 +28,10 @@ func _fixed_process(delta):
 	if (canJump && Input.is_action_pressed("ui_accept")):
 		get_node("hamster").apply_impulse(Vector2(0,0), Vector2(0,-300))
 	if (Input.is_action_pressed("ui_right")):
-		get_node("hamster").apply_impulse(Vector2(0,0), Vector2(20,0))
+		get_node("hamster").apply_impulse(Vector2(0,0), Vector2(8,-4))
+		get_node("hamster").set_angular_velocity(10)
+		get_node("center").set_angular_velocity(10)
 	if (Input.is_action_pressed("ui_left")):
-		get_node("hamster").apply_impulse(Vector2(0,0), Vector2(-20,0))
+		get_node("hamster").apply_impulse(Vector2(0,0), Vector2(-8,-4))
+		get_node("hamster").set_angular_velocity(-10)
+		get_node("center").set_angular_velocity(-10)
