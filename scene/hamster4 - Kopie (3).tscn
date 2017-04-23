@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://script/hamster.gd" type="Script" id=1]
 [ext_resource path="res://assets/hamster.png" type="Texture" id=2]
@@ -19,6 +19,9 @@ radius = 49.4259
 
 custom_solver_bias = 0.0
 extents = Vector2( 45.1162, 10 )
+
+[sub_resource type="SampleLibrary" id=4]
+
 
 [node name="hamster" type="Node2D"]
 
@@ -58,7 +61,6 @@ _update_shape_index = 0
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
 
 transform/rot = 45.0
-transform/scale = Vector2( 1, 1 )
 node_a = NodePath("../hamster")
 node_b = NodePath("../center")
 bias/bias = 0.0
@@ -185,7 +187,6 @@ transform/rot = -135.0
 
 transform/pos = Vector2( 70.7107, 70.7107 )
 transform/rot = 45.0
-transform/scale = Vector2( 1, 1 )
 
 [node name="wall 2" parent="." instance=ExtResource( 4 )]
 
@@ -206,8 +207,15 @@ transform/rot = -180.0
 
 transform/pos = Vector2( 0, 100 )
 
-[node name="Node2D1" type="Node2D" parent="."]
+[node name="sounds" type="SamplePlayer2D" parent="."]
 
-transform/rot = 45.0
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 4 )
+config/pitch_random = 0.0
 
 
