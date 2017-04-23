@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/wood.png" type="Texture" id=1]
+
+[node name="table" type="Node2D"]
+
+transform/scale = Vector2( 2.10852, 0.415799 )
+
+[node name="leg" type="Sprite" parent="."]
+
+transform/pos = Vector2( -156.062, 374.231 )
+transform/rot = 90.0
+transform/scale = Vector2( 1.71935, 0.0770615 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="leg1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 141.416, 515.315 )
+transform/rot = 90.0
+transform/scale = Vector2( 1.71935, 0.0770615 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="leg2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 300.118, 206.194 )
+transform/rot = 90.0
+transform/scale = Vector2( 1.71935, 0.0770615 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="leg3" type="Sprite" parent="."]
+
+transform/pos = Vector2( -8.35249, 6.33183 )
+transform/rot = 90.0
+transform/scale = Vector2( 1.71935, 0.0770615 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="piece" type="Sprite" parent="."]
+
+transform/pos = Vector2( 308.135, -138.337 )
+transform/rot = 88.4587
+transform/scale = Vector2( 0.159331, 0.23189 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="piece1" type="Sprite" parent="."]
+
+transform/pos = Vector2( -192.485, 61.5427 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.156186, 0.10568 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -18.3909, 150.541 )
+transform/rot = -27.0
+transform/scale = Vector2( 1.22073, 0.2135 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 216.944, 62.8004 )
+transform/rot = -117.0
+transform/scale = Vector2( 1.31011, 0.2135 )
+texture = ExtResource( 1 )
+modulate = Color( 0.488281, 0.482559, 0.482559, 1 )
+
+[node name="top" type="Sprite" parent="."]
+
+transform/pos = Vector2( 65.8188, -63.0594 )
+transform/rot = -27.0
+transform/scale = Vector2( 1.22577, 1.76487 )
+texture = ExtResource( 1 )
+
+

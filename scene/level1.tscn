@@ -1,26 +1,48 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=15 format=1]
 
-[ext_resource path="res://assets/cage.png" type="Texture" id=1]
-[ext_resource path="res://scene/door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scene/wheel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scene/key.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scene/hamster4.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/cage-fg.png" type="Texture" id=6]
+[ext_resource path="res://scene/table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/wood.png" type="Texture" id=2]
+[ext_resource path="res://assets/cage.png" type="Texture" id=3]
+[ext_resource path="res://scene/door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scene/wheel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scene/key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scene/seesaw3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scene/hamster4 - Kopie (3).tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/seesaw4.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/seesaw5.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/platform3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/cage-fg.png" type="Texture" id=11]
+[ext_resource path="res://scene/platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scene/car.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 565.953 )
 
-[node name="level" type="Node2D"]
+[node name="cage" type="Node2D"]
+
+[node name="table" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 1042.81, 1433.51 )
+transform/scale = Vector2( 16, 3 )
+
+[node name="bg 2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1708.62, 925.594 )
+transform/scale = Vector2( 0.737177, 2.07692 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="bg" type="Sprite" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 958.681, 542.412 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bg"]
 
@@ -43,8 +65,8 @@ shapes/4/trigger = false
 shapes/5/shape = SubResource( 1 )
 shapes/5/transform = Matrix32( -1.29569e-07, -2.96419, 1.23581, -5.4019e-08, -52.4328, 469.436 )
 shapes/5/trigger = false
-collision/layers = 129
-collision/mask = 129
+collision/layers = 255
+collision/mask = 255
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -100,40 +122,73 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 5
 
-[node name="door" parent="." instance=ExtResource( 2 )]
+[node name="Sprite" type="Sprite" parent="bg"]
+
+transform/pos = Vector2( -668.578, 310.289 )
+transform/rot = 112.46
+transform/scale = Vector2( 0.878988, 0.105648 )
+texture = ExtResource( 2 )
+
+[node name="door" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1709.15, 732.638 )
 
-[node name="wheel" parent="." instance=ExtResource( 3 )]
+[node name="wheel" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 607.85, 375.688 )
+transform/pos = Vector2( 686.62, 468.157 )
 transform/rot = 121.392
 
-[node name="key" parent="." instance=ExtResource( 4 )]
+[node name="key" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 430.657, 358.839 )
+transform/pos = Vector2( 516.78, 432.659 )
 transform/scale = Vector2( 0.418057, 0.418057 )
 
-[node name="hamster" parent="." instance=ExtResource( 5 )]
+[node name="board" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 566.067, 751.794 )
-z/z = 10
-z/relative = false
+transform/pos = Vector2( 1323.27, 794.841 )
+transform/rot = 24.257
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="seesaw" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 4577.07, 854.131 )
+
+[node name="seesaw 2" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 3967.83, 899.182 )
+
+[node name="seesaw3" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 6848.71, 2823.01 )
+
+[node name="platform" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1170.64, 406.569 )
+transform/scale = Vector2( 4.04569, 0.633065 )
+
+[node name="fg" type="Sprite" parent="."]
 
 transform/pos = Vector2( 969.522, 552.771 )
 z/z = 20
 z/relative = false
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="board" parent="." instance=ExtResource( 7 )]
+[node name="platform 2" parent="." instance=ExtResource( 12 )]
 
-transform/pos = Vector2( 1145.06, 746.437 )
-transform/scale = Vector2( 2.32666, 2.32666 )
+transform/pos = Vector2( 5815.59, 1950.8 )
+transform/rot = -89.9168
+transform/scale = Vector2( -28.845, -5.46525 )
 
-[node name="hamster 2" parent="." instance=ExtResource( 8 )]
+[node name="platform1" parent="." instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 970.175, 604.371 )
+visibility/opacity = 0.0
+transform/pos = Vector2( 4098.79, 1019.91 )
+transform/scale = Vector2( 72.156, 2.13073 )
+
+[node name="car" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 5733.64, 844.958 )
 
 

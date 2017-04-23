@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scene/key.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/pickup.wav" type="Sample" id=2]
-[ext_resource path="res://assets/key.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/key.png" type="Texture" id=4]
 
-[sub_resource type="SampleLibrary" id=2]
+[sub_resource type="SampleLibrary" id=1]
 
 samples/pickup = {
 "db": 0.0,
@@ -13,7 +14,7 @@ samples/pickup = {
 "sample": ExtResource( 2 )
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 42, 16 )
@@ -21,7 +22,7 @@ extents = Vector2( 42, 16 )
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 62.8608, 11.5036 )
+extents = Vector2( 52, 30 )
 
 [node name="key" type="Node2D"]
 
@@ -35,17 +36,17 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 2 )
+config/samples = SubResource( 1 )
 config/pitch_random = 0.0
 
 [node name="body" type="RigidBody2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 3
-collision/mask = 3
+collision/layers = 0
+collision/mask = 1
 mode = 0
 mass = 1.0
 friction = 0.5
@@ -66,7 +67,7 @@ damp_override/angular = -1.0
 
 input/pickable = true
 shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 0.919096, 0, 0, 3.20095, -0.16325, -1.00934 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.16325, -1.00934 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -78,14 +79,19 @@ collision/mask = 131
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body/Area2D"]
 
 transform/pos = Vector2( -0.16325, -1.00934 )
-transform/scale = Vector2( 0.919096, 3.20095 )
 shape = SubResource( 3 )
 trigger = true
 _update_shape_index = 0
 
+[node name="Sprite" type="Sprite" parent="body/Area2D/CollisionShape2D"]
+
+visibility/visible = false
+transform/scale = Vector2( 1.62516, 0.947529 )
+texture = ExtResource( 3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -93,7 +99,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 0.26602, 0 )
 transform/scale = Vector2( 0.467953, 0.467953 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [connection signal="body_enter" from="body/Area2D" to="." method="_on_Area2D_body_enter"]

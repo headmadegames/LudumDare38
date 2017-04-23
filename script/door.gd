@@ -18,4 +18,6 @@ func _on_lock_body_enter( body ):
 			print("opening door")
 			print(body)
 			get_node("AnimationPlayer").play("open")
+			body.get_node("sounds").play("open")
+			body.get_node("sounds").play("unlock")
 			doorOpen = true;

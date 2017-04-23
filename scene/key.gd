@@ -17,5 +17,5 @@ func _on_Area2D_body_enter( body ):
 		print(body.get_name())
 		print(body.get_filename())
 		body.add_to_group("keyholder")
-		body.get_parent().get_node("sounds").play("pickup")
+		body.get_node("sounds").play("pickup")
 		queue_free()

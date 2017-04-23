@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://script/intro.gd" type="Script" id=1]
+[ext_resource path="res://assets/poster.png" type="Texture" id=2]
+
+[node name="intro" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = -20.0
+margin/bottom = -20.0
+use_top_left = false
+
+[node name="Sprite" type="Sprite" parent="CenterContainer"]
+
+texture = ExtResource( 2 )
+centered = false
+
+

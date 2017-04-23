@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 20, 250 )
+extents = Vector2( 54.2071, 250 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -75,7 +75,7 @@ script/script = ExtResource( 1 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -75.1583, -303.973 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -60.1583, -303.973 )
 shapes/0/trigger = false
 collision/layers = 1023
 collision/mask = 1023
@@ -83,14 +83,14 @@ collision/margin = 0.08
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 
-transform/pos = Vector2( -75.1583, -303.973 )
+transform/pos = Vector2( -60.1583, -303.973 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D/CollisionShape2D"]
 
-transform/pos = Vector2( 75, 307.551 )
+transform/pos = Vector2( 59, 307.551 )
 z/z = 1
 z/relative = false
 texture = ExtResource( 2 )

@@ -1,0 +1,161 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://assets/car.png" type="Texture" id=1]
+[ext_resource path="res://assets/carwheel.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 181.448, -20.9168, 232.241, 65.0004, -231.387, 66.6215, 77.1583, -26.3204 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -129.259, -68.4684, 17.1784, -67.928, 77.1583, -26.3204, -231.387, 66.6215, -166.544, -20.3764 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -166.544, -20.3764, -231.387, 66.6215, -216.797, -6.32706 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 39.6549
+
+[node name="car" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 3.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 3.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+
+build_mode = 0
+polygon = Vector2Array( -231.387, 66.6215, -216.797, -6.32706, -166.544, -20.3764, -129.259, -68.4684, 17.1784, -67.928, 77.1583, -26.3204, 181.448, -20.9168, 232.241, 65.0004 )
+shape_range = Vector2( 0, 2 )
+trigger = false
+
+[node name="wheel" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( -157.979, 48.6743 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.61
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="Sprite" type="Sprite" parent="wheel"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wheel"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="wheel1" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 148.574, 50.4705 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.6
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+
+[node name="Sprite" type="Sprite" parent="wheel1"]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wheel1"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( -157.468, 49.0964 )
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../wheel")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="PinJoint2D1" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 147.289, 49.6951 )
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../wheel1")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+

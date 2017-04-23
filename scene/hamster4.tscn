@@ -63,10 +63,10 @@ node_a = NodePath("../hamster")
 node_b = NodePath("../center")
 bias/bias = 0.0
 collision/exclude_nodes = true
-length = 6.0
+length = 12.0
 rest_length = 0.0
 stiffness = 20.0
-damping = 2.0
+damping = 1.0
 
 [node name="hamster" type="RigidBody2D" parent="." groups=[
 "player",
@@ -79,7 +79,7 @@ shapes/0/trigger = false
 collision/layers = 3
 collision/mask = 3
 mode = 0
-mass = 3.28739
+mass = 1.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 5.0

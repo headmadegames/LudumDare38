@@ -1,18 +1,36 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scene/ballwall.gd" type="Script" id=1]
 [ext_resource path="res://assets/ballwall.png" type="Texture" id=2]
+[ext_resource path="res://assets/wood.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/bump.wav" type="Sample" id=4]
+[ext_resource path="res://assets/audio/squeak.wav" type="Sample" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 8 )
+extents = Vector2( 40, 10 )
+
+[sub_resource type="SampleLibrary" id=2]
+
+samples/bump = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 4 )
+}
+samples/squeak = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
 
 [node name="wall" type="RigidBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -1 )
 shapes/0/trigger = false
 collision/layers = 2
 collision/mask = 1
@@ -23,7 +41,7 @@ bounce = 0.2
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
+contacts_reported = 1
 contact_monitor = false
 sleeping = false
 can_sleep = true
@@ -44,16 +62,53 @@ softness = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+transform/pos = Vector2( 0, -1 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D"]
 
-visibility/opacity = 0.22
-transform/pos = Vector2( 0, -12.4657 )
+visibility/opacity = 0.3
+transform/pos = Vector2( 6.63588e-06, 0.5343 )
 transform/rot = 179.975
-transform/scale = Vector2( 2.0054, 1.12745 )
+transform/scale = Vector2( 2.95117, 1.12745 )
 texture = ExtResource( 2 )
+
+[node name="Sprite1" type="Sprite" parent="CollisionShape2D"]
+
+visibility/opacity = 0.3
+transform/pos = Vector2( 23, -3.46567 )
+transform/rot = -155.1
+transform/scale = Vector2( 2.95117, 1.12745 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="CollisionShape2D"]
+
+visibility/opacity = 0.3
+transform/pos = Vector2( -20.2149, -3.03937 )
+transform/rot = -200.839
+transform/scale = Vector2( 2.95117, 1.12745 )
+texture = ExtResource( 2 )
+
+[node name="Sprite 2" type="Sprite" parent="CollisionShape2D"]
+
+visibility/visible = false
+visibility/opacity = 0.3
+transform/scale = Vector2( 0.251413, 0.0814226 )
+texture = ExtResource( 3 )
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 2 )
+config/pitch_random = 0.0
+
+[connection signal="body_enter" from="." to="." method="_on_wall_body_enter"]
 
 
