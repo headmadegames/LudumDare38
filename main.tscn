@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scene/platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/bg.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scene/ball.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scene/hamster4 - Kopie (4).tscn" type="PackedScene" id=10]
 [ext_resource path="res://scene/cameraTrigger.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/audio/song.ogg" type="AudioStream" id=12]
 
 [node name="main" type="Control"]
 
@@ -143,5 +144,16 @@ transform/scale = Vector2( 57.8846, 46.5349 )
 
 transform/pos = Vector2( 7083.93, 1588.19 )
 transform/scale = Vector2( 57.8846, 46.5349 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 12 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 
